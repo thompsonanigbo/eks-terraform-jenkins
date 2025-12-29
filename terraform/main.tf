@@ -45,12 +45,12 @@ module "eks" {
   control_plane_subnet_ids = module.vpc.intra_subnets
 
   # EKS Managed Node Group(s)
-  eks_managed_node_groups = {
-    ami_type       = "AL2023_x86_64_STANDARD"
-    instance_types = ["m5.xlarge"]
+  #eks_managed_node_groups = {
+  #  ami_type       = "AL2023_x86_64_STANDARD"
+  #  instance_types = ["m5.xlarge"]
 
-    attach_cluster_primary_security_group = true
-  }
+  #  attach_cluster_primary_security_group = true
+  #}
 
   eks_managed_node_groups = {
     utom-cluster-wg = {
@@ -59,7 +59,7 @@ module "eks" {
       desired_size = 1
 
       instance_types = ["t3.large"]
-      capacity_type  = "SPOT"
+      #capacity_type  = "SPOT"
 
       tags = {
         ExtraTag = "helloworld"
